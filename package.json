@@ -1,0 +1,60 @@
+{
+	"name": "ocdetailer",
+	"displayName": "OCDetailer",
+	"description": "Organizes a selection of code",
+    "icon": "OCDetailer.png",
+	"version": "1.1.2",
+	"engines": {
+		"vscode": "^1.20.0"
+	},
+	"publisher": "Saaasaab",
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:ocdetailer.detailer"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "ocdetailer.detailer",
+				"title": "OCDetailer"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/saaasaab/repository.git"
+	  },
+	"scripts": {
+		"test-compile":      "tsc -p ./",
+		"lint":              "eslint src --ext ts",
+		"test-watch":        "tsc -watch -p ./",
+		"test":              "node ./out/test/runTest.js",
+		"vscode:prepublish": "yarn run package",
+		"pretest":           "yarn run test-compile && yarn run lint",
+		"compile":           "webpack --config ./build/node-extension.webpack.config.js",
+		"watch":             "webpack --watch --config ./build/node-extension.webpack.config.js",
+		"package":           "webpack --mode production --devtool hidden-source-map --config ./build/node-extension.webpack.config.js"
+	},
+	"devDependencies": {
+		"glob":                             "^7.1.6",
+		"mocha":                            "^8.1.3",
+		"eslint":                           "^7.15.0",
+		"webpack":                          "^5.10.0",
+		"ts-loader":                        "^8.0.11",
+		"typescript":                       "^4.1.2",
+		"@types/glob":                      "^7.1.3",
+		"vscode-test":                      "^1.4.1",
+		"webpack-cli":                      "^4.2.0",
+		"@types/mocha":                     "^8.0.4",
+		"@types/node":                      "^12.11.7",
+		"@types/vscode":                    "^1.20.0",
+		"@typescript-eslint/parser":        "^4.9.0",
+		"@typescript-eslint/eslint-plugin": "^4.9.0"
+	},
+	"dependencies": {
+		"node-fetch": "^2.6.1"
+	}
+}
